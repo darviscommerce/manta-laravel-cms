@@ -73,7 +73,7 @@ class MantaCmsProvider extends ServiceProvider
 
 
             $this->publishes([
-              __DIR__.'/../config/config.php' => config_path('manta-users.php'),
+              __DIR__.'/../config/config.php' => config_path('manta-cms.php'),
             ], 'config');
 
           }
@@ -86,7 +86,7 @@ class MantaCmsProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'manta-users');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'manta-cms');
     }
 
     protected function registerRoutes()
@@ -98,10 +98,10 @@ class MantaCmsProvider extends ServiceProvider
 
     protected function routeConfiguration()
     {
-        // dd(config('manta-users.prefix'));
+        // dd(config('manta-cms.prefix'));
         return [
-            'prefix' => config('manta-users.prefix'),
-            'middleware' => config('manta-users.middleware'),
+            'prefix' => config('manta-cms.prefix'),
+            'middleware' => config('manta-cms.middleware'),
         ];
     }
 }

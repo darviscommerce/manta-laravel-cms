@@ -17,7 +17,7 @@ class InstallMantaLaravelCms extends Command
 
         $this->info('Publishing configuration...');
 
-        if (! $this->configExists('manta-users.php')) {
+        if (! $this->configExists('manta-cms.php')) {
             $this->publishConfiguration();
             $this->info('Published configuration');
         } else {

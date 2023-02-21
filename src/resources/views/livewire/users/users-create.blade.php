@@ -8,14 +8,14 @@
     </nav>
     <form wire:submit.prevent="store(Object.fromEntries(new FormData($event.target)))">
         <h4 class="text-primary">Persoonlijke gegevens</h4>
-        @if (count(config('manta-users.locales')) > 1)
+        @if (count(config('manta-cms.locales')) > 1)
         <div class="mb-3 row">
             <label for="locale" class="col-sm-2 col-form-label">Taal voorkeur</label>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm @error('locale')is-invalid @enderror"
                     id="locale" wire:model.defer="locale">
                     <option value="">Maak een keuze</option>
-                    @foreach (config('manta-users.locales') as $key => $value)
+                    @foreach (config('manta-cms.locales') as $key => $value)
                     <option value="{{ $key }}">{{ $value['language'] }}</option>
                     @endforeach
                 </select>
