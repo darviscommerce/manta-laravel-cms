@@ -1,3 +1,5 @@
+@section('module', 'users')
+@section('title', 'Gebruiker aanpassen')
 <div class="container">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">

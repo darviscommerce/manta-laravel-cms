@@ -86,7 +86,7 @@ class UsersUpdate extends Component
 
     public function render()
     {
-        return view('manta-laravel-users::livewire.users.users-update')->layout('manta-laravel-users::layouts.manta-bootstrap');
+        return view('manta-laravel-cms::livewire.users.users-update')->layout('manta-laravel-cms::layouts.manta-bootstrap');
     }
 
     public function store($input)

@@ -23,6 +23,6 @@ class ComponentTinymce extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('manta-laravel-users::components.manta.component-tinymce');
+        return view('manta-laravel-cms::components.manta.component-tinymce');
     }
 }

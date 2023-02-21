@@ -42,7 +42,7 @@ class UsersList extends Component
         // ->where('name', 'like', '%'.$this->search.'%')->orWhere('email', 'like', '%'.$this->search.'%');
         }
         $items = $obj->paginate(20);
-        return view('manta-laravel-users::livewire.users.users-list', ['items' => $items])->layout('manta-laravel-users::layouts.manta-bootstrap');
+        return view('manta-laravel-cms::livewire.users.users-list', ['items' => $items])->layout('manta-laravel-cms::layouts.manta-bootstrap')->with(['title' => 'kip']);
     }
 
     public function loadTrash()

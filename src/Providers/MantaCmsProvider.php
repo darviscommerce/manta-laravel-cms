@@ -7,13 +7,11 @@ use Manta\LaravelCms\Http\Livewire\Users\UsersCreate;
 use Manta\LaravelCms\Http\Livewire\Users\UsersList;
 use Manta\LaravelCms\Http\Livewire\Users\UsersUpdate;
 use Manta\LaravelCms\View\Components\Manta\ComponentTinymce;
-
-// use Manta\LaravelCms\Http\Livewire\Users\UsersList;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Blade;
-// use Livewire\Livewire;
+use Manta\LaravelCms\Http\Livewire\Cms\CmsNavigation;
 
 class MantaCmsProvider extends ServiceProvider
 {
@@ -31,6 +29,8 @@ class MantaCmsProvider extends ServiceProvider
         $this->registerRoutes();
 
         // * Laravel components
+        Livewire::component('cms-navigation', CmsNavigation::class);
+        //
         Livewire::component('users-create', UsersCreate::class);
         Livewire::component('users-update', UsersUpdate::class);
         Livewire::component('users-list', UsersList::class);
@@ -40,12 +40,12 @@ class MantaCmsProvider extends ServiceProvider
 
 
         // * Views
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'manta-laravel-users');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'manta-laravel-cms');
 
         // * Migrations
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
-        $this->loadViewComponentsAs('manta-laravel-users', [
+        $this->loadViewComponentsAs('manta-laravel-cms', [
             MantaFooter::class,
         ]);
 

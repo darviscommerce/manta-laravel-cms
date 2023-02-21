@@ -1,3 +1,4 @@
+@section('title', 'Gebruikers')
 <div class="container" wire:init="loadTrash">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
