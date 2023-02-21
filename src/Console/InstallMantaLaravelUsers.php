@@ -1,11 +1,11 @@
 <?php
 
-namespace Manta\LaravelUsers\Console;
+namespace Manta\LaravelCms\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class InstallMantaLaravelUsers extends Command
+class InstallMantaLaravelCms extends Command
 {
     protected $signature = 'mantalaravelusers:install';
 
@@ -48,7 +48,7 @@ class InstallMantaLaravelUsers extends Command
     private function publishConfiguration($forcePublish = false)
     {
         $params = [
-            '--provider' => "Manta\LaravelUsers\Providers\MantaUsersProvider",
+            '--provider' => "Manta\LaravelCms\Providers\MantaCmsProvider",
             '--tag' => "config"
         ];
 

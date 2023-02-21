@@ -1,21 +1,21 @@
 <?php
 
-namespace Manta\LaravelUsers\Providers;
+namespace Manta\LaravelCms\Providers;
 
-use Manta\LaravelUsers\Console\InstallMantaLaravelUsers;
-use Manta\LaravelUsers\Http\Livewire\Users\UsersCreate;
-use Manta\LaravelUsers\Http\Livewire\Users\UsersList;
-use Manta\LaravelUsers\Http\Livewire\Users\UsersUpdate;
-use Manta\LaravelUsers\View\Components\Manta\ComponentTinymce;
+use Manta\LaravelCms\Console\InstallMantaLaravelCms;
+use Manta\LaravelCms\Http\Livewire\Users\UsersCreate;
+use Manta\LaravelCms\Http\Livewire\Users\UsersList;
+use Manta\LaravelCms\Http\Livewire\Users\UsersUpdate;
+use Manta\LaravelCms\View\Components\Manta\ComponentTinymce;
 
-// use Manta\LaravelUsers\Http\Livewire\Users\UsersList;
+// use Manta\LaravelCms\Http\Livewire\Users\UsersList;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Blade;
 // use Livewire\Livewire;
 
-class MantaUsersProvider extends ServiceProvider
+class MantaCmsProvider extends ServiceProvider
 {
 
 
@@ -52,7 +52,7 @@ class MantaUsersProvider extends ServiceProvider
         // * Artisan commands
         if ($this->app->runningInConsole()) {
             $this->commands([
-                InstallMantaLaravelUsers::class,
+                InstallMantaLaravelCms::class,
             ]);
         }
 

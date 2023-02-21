@@ -1,9 +1,9 @@
 <?php
 
-namespace Manta\LaravelUsers\Http\Livewire\Users;
+namespace Manta\LaravelCms\Http\Livewire\Users;
 
-use Manta\LaravelUsers\Models\MantaUser;
-use Manta\LaravelUsers\Traits\WithSorting;
+use Manta\LaravelCms\Models\MantaUser;
+use Manta\LaravelCms\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 

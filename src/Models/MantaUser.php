@@ -1,6 +1,6 @@
 <?php
 
-namespace Manta\LaravelUsers\Models;
+namespace Manta\LaravelCms\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

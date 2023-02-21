@@ -1,8 +1,8 @@
 <?php
 
-use Manta\LaravelUsers\Http\Livewire\Users\UsersCreate;
-use Manta\LaravelUsers\Http\Livewire\Users\UsersList;
-use Manta\LaravelUsers\Http\Livewire\Users\UsersUpdate;
+use Manta\LaravelCms\Http\Livewire\Users\UsersCreate;
+use Manta\LaravelCms\Http\Livewire\Users\UsersList;
+use Manta\LaravelCms\Http\Livewire\Users\UsersUpdate;
 use Illuminate\Support\Facades\Route;
 
 

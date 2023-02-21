@@ -1,9 +1,9 @@
 <?php
 
-namespace Manta\LaravelUsers\Http\Livewire\Users;
+namespace Manta\LaravelCms\Http\Livewire\Users;
 
 use Carbon\Carbon;
-use Manta\LaravelUsers\Models\MantaUser;
+use Manta\LaravelCms\Models\MantaUser;
 use Livewire\Component;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;

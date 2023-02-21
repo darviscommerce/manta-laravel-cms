@@ -14,13 +14,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Manta\\LaravelUsers\\Providers\\MantaUsersProvider"
+                "Manta\\LaravelCms\\Providers\\MantaCmsProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "Manta\\LaravelUsers\\": "/src"
+            "Manta\\LaravelCms\\": "/src"
         }
     },
     "repositories": [
