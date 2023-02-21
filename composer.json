@@ -1,0 +1,37 @@
+{
+    "name": "darvis/manta-laravel-users",
+    "description": "Standard Users management for Laravel",
+    "homepage": "http://darvis.nl",
+    "keywords": ["darvis", "laravel", "livewire", "users"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arvid de Jong",
+            "email": "arvid@darvis.nl",
+            "homepage": "https://darvis.nl"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Manta\\LaravelUsers\\Providers\\MantaUsersProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Manta\\LaravelUsers\\": "/src"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/darviscommerce/laravel-users"
+        }
+    ],
+    "require": {
+        "darvis/lemmings": ">=1.0.0",
+        "php-flasher/flasher-laravel": "*",
+        "php-flasher/flasher-toastr-laravel": "*"
+    }
+}
