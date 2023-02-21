@@ -1,5 +1,5 @@
 {
-    "name": "darvis/manta-laravel-users",
+    "name": "darvis/manta-laravel-cms",
     "description": "Standard Users management for Laravel",
     "homepage": "http://darvis.nl",
     "keywords": ["darvis", "laravel", "livewire", "users"],
@@ -26,7 +26,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/darviscommerce/laravel-users"
+            "url": "https://github.com/darviscommerce/manta-laravel-cms"
         }
     ],
     "require": {
