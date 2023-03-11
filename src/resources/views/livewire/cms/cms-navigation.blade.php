@@ -19,12 +19,22 @@
                         @if (Route::has('manta.pages.list'))
                             <li><a class="dropdown-item {{ preg_match('/pages/', $currentRouteName) ? 'active' : null }}" href="{{ route('manta.pages.list') }}">Tekst pagina's</a></li>
                         @endif
+                        @if (Route::has('manta.uploads.list'))
+                            <li><a class="dropdown-item {{ preg_match('/uploads/', $currentRouteName) ? 'active' : null }}" href="{{ route('manta.uploads.list') }}">Uploads</a></li>
+                        @endif
                     </ul>
                 </li>
             </ul>
-            <form role="search">
+            <div id="intro" class="pull-right">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ env('APP_URL') }}" target="_blank">Website</a>
+                    </li>
+                </ul>
+              </div>
+            {{-- <form role="search">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            </form>
+            </form> --}}
         </div>
     </div>
 </nav>

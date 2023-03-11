@@ -15,7 +15,7 @@ class CmsNavigation extends Component
     {
         $this->currentRouteName = Route::currentRouteName();
 
-        if(preg_match('/(users|pages)/', $this->currentRouteName)){
+        if(preg_match('/(pages|users|uploads)/', $this->currentRouteName)){
             $this->activeModules = 'active';
         } else {
             $this->activeHome = 'active';
@@ -24,6 +24,6 @@ class CmsNavigation extends Component
 
     public function render()
     {
-                return view('manta-laravel-cms::livewire.cms.cms-navigation')->layout('manta-laravel-cms::layouts.manta-bootstrap');
+        return view('manta-laravel-cms::livewire.cms.cms-navigation')->layout('manta-laravel-cms::layouts.manta-bootstrap');
     }
 }

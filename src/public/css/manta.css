@@ -1,0 +1,33 @@
+/*
+* * Uploads
+*/
+div.mantaUploadsDiv {
+ margin: 5px;
+ border: 1px solid #ccc;
+ float: left;
+ width: 180px;
+}
+
+div.mantaUploadsDiv:hover {
+ border: 1px solid #777;
+}
+
+.mantaUploadsImage {
+
+ background-repeat: no-repeat;
+ background-size: 100%;
+ background-position: center;
+}
+
+.mantaUploadsItem {
+ overflow:hidden; width: 100%; height: 150px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+div.mantaUploadsDescription {
+ padding: 15px;
+ height: 80px;
+ text-align: center;
+}

@@ -14,6 +14,8 @@
     <link href="/libs/flag-icons/css/flag-icons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="/libs/tinymce_6.3.1/js/tinymce/tinymce.min.js"></script>
+
+    <link href="/css/manta.css" rel="stylesheet">
     @livewireStyles
   </head>
   <body class="d-flex flex-column h-100">
