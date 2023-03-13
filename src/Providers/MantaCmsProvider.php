@@ -27,7 +27,7 @@ class MantaCmsProvider extends ServiceProvider
 
 
         // * Views
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'manta-laravel-cms');
+        // $this->loadViewsFrom(__DIR__ . '/../resources/views', 'manta-laravel-cms');
 
         // * Migrations
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
