@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Manta\LaravelCms\Http\Livewire\Users\UsersCreate;
-use Manta\LaravelCms\Http\Livewire\Users\UsersList;
-use Manta\LaravelCms\Http\Livewire\Users\UsersUpdate;
-use Manta\LaravelCms\Http\Livewire\Cms\CmsGeneral;
+use App\Http\Livewire\Users\UsersCreate;
+use App\Http\Livewire\Users\UsersList;
+use App\Http\Livewire\Users\UsersUpdate;
+use App\Http\Livewire\Cms\CmsGeneral;
 
 Route::get('/algemene-instellingen', CmsGeneral::class)->name('manta.cms.general');
 

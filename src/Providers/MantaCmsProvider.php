@@ -22,14 +22,7 @@ class MantaCmsProvider extends ServiceProvider
         $this->registerRoutes();
 
         // * Laravel components
-        // Livewire::component('cms-general', CmsGeneral::class);
-        // Livewire::component('cms-navigation', CmsNavigation::class);
-        //
-        // Livewire::component('users-create', UsersCreate::class);
-        // Livewire::component('users-update', UsersUpdate::class);
-        // Livewire::component('users-list', UsersList::class);
 
-        // Blade::component('component-tinymce', ComponentTinymce::class);
 
 
 
