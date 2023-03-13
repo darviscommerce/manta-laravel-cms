@@ -19,7 +19,7 @@
     @livewireStyles
   </head>
   <body class="d-flex flex-column h-100">
-    @livewire('cms-navigation')
+    @livewire('cms.cms-navigation')
     <!-- Begin page content -->
     <main class="flex-shrink-0 pt-4">
         {{ $slot }}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Manta\LaravelCms\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +24,6 @@ class CmsNavigation extends Component
 
     public function render()
     {
-        return view('manta-laravel-cms::livewire.cms.cms-navigation')->layout('manta-laravel-cms::layouts.manta-bootstrap');
+        return view('livewire.cms.cms-navigation')->layout('layouts.manta-bootstrap');
     }
 }

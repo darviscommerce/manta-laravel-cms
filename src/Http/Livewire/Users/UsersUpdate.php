@@ -1,6 +1,6 @@
 <?php
 
-namespace Manta\LaravelCms\Http\Livewire\Users;
+namespace App\Http\Livewire\Users;
 
 use Carbon\Carbon;
 use Manta\LaravelCms\Models\MantaUser;
@@ -86,7 +86,7 @@ class UsersUpdate extends Component
 
     public function render()
     {
-        return view('manta-laravel-cms::livewire.users.users-update')->layout('manta-laravel-cms::layouts.manta-bootstrap');
+        return view('livewire.users.users-update')->layout('layouts.manta-bootstrap');
     }
 
     public function store($input)

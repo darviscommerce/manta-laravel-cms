@@ -1,9 +1,9 @@
 <?php
 
-namespace Manta\LaravelCms\Http\Livewire\Users;
+namespace App\Http\Livewire\Users;
 
 use Manta\LaravelCms\Models\MantaUser;
-use Manta\LaravelCms\Traits\WithSorting;
+use App\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -42,7 +42,7 @@ class UsersList extends Component
         // ->where('name', 'like', '%'.$this->search.'%')->orWhere('email', 'like', '%'.$this->search.'%');
         }
         $items = $obj->paginate(20);
-        return view('manta-laravel-cms::livewire.users.users-list', ['items' => $items])->layout('manta-laravel-cms::layouts.manta-bootstrap')->with(['title' => 'kip']);
+        return view('livewire.users.users-list', ['items' => $items])->layout('layouts.manta-bootstrap')->with(['title' => 'kip']);
     }
 
     public function loadTrash()

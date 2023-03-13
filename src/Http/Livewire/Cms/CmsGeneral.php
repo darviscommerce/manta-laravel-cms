@@ -1,6 +1,6 @@
 <?php
 
-namespace Manta\LaravelCms\Http\Livewire\Cms;
+namespace App\Http\Livewire\Cms;
 
 
 use Livewire\Component;
@@ -39,7 +39,7 @@ class CmsGeneral extends Component
 
     public function render()
     {
-        return view('manta-laravel-cms::livewire.cms.cms-general')->layout('manta-laravel-cms::layouts.manta-bootstrap');
+        return view('livewire.cms.cms-general')->layout('layouts.manta-bootstrap');
     }
 
     public function store($input)

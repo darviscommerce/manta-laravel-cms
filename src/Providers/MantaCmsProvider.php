@@ -31,7 +31,7 @@ class MantaCmsProvider extends ServiceProvider
 
         // * Laravel components
         Livewire::component('cms-general', CmsGeneral::class);
-        Livewire::component('cms-navigation', CmsNavigation::class);
+        // Livewire::component('cms-navigation', CmsNavigation::class);
         //
         Livewire::component('users-create', UsersCreate::class);
         Livewire::component('users-update', UsersUpdate::class);
@@ -62,17 +62,18 @@ class MantaCmsProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Publish view components
             $this->publishes([
+                __DIR__ . '/../Http/' => app_path('Http'),
                 __DIR__ . '/../public/' => public_path(''),
+                __DIR__ . '/../View/Components/' => app_path('View/Components'),
+                __DIR__ . '/../resources/views/' => resource_path('views'),
                 // __DIR__ . '/../public/libs/' => public_path('libs'),
                 // __DIR__ . '/../public/images/' => public_path('images'),
-                // __DIR__ . '/../View/Components/' => app_path('View/Components'),
                 // __DIR__ . '/../Traits/' => app_path('Traits'),
                 // __DIR__ . '/../resources/' => resource_path(''),
-                // __DIR__ . '/../resources/views/' => resource_path('views'),
                 // __DIR__ . '/../resources/views/layouts/' => resource_path('views/layouts'),
                 // __DIR__ . '/../resources/views/components/' => resource_path('views/components'),
                 // __DIR__ . '/../database/seeders/' => resource_path('/../database/seeders'),
-            ], 'view-components');
+            ], 'manta-cms-components');
 
 
             $this->publishes([

@@ -29,7 +29,7 @@ class InstallMantaLaravelCms extends Command
             }
         }
 
-        $this->info('Installed Manta Laravel Bootstra');
+        $this->info('Installed Manta Laravel Bootstrap');
     }
 
     private function configExists($fileName)

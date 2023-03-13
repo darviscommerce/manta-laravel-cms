@@ -1,5 +1,5 @@
 <?php
-namespace Manta\LaravelCms\Traits;
+namespace App\Traits;
 
 trait WithSorting
 {
