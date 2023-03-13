@@ -31,7 +31,6 @@
     ],
     "require": {
         "darvis/lemmings": ">=1.0.0",
-        "darvis/manta-laravel-cms": "*",
         "darvis/manta-laravel-pages": "*",
         "php-flasher/flasher-laravel": "*",
         "php-flasher/flasher-toastr-laravel": "*"
