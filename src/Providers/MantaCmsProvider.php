@@ -3,16 +3,8 @@
 namespace Manta\LaravelCms\Providers;
 
 use Manta\LaravelCms\Console\InstallMantaLaravelCms;
-use Manta\LaravelCms\Http\Livewire\Users\UsersCreate;
-use Manta\LaravelCms\Http\Livewire\Users\UsersList;
-use Manta\LaravelCms\Http\Livewire\Users\UsersUpdate;
-use Manta\LaravelCms\View\Components\Manta\ComponentTinymce;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Livewire\Livewire;
-use Illuminate\Support\Facades\Blade;
-use Manta\LaravelCms\Http\Livewire\Cms\CmsGeneral;
-use Manta\LaravelCms\Http\Livewire\Cms\CmsNavigation;
 
 class MantaCmsProvider extends ServiceProvider
 {
@@ -30,14 +22,14 @@ class MantaCmsProvider extends ServiceProvider
         $this->registerRoutes();
 
         // * Laravel components
-        Livewire::component('cms-general', CmsGeneral::class);
+        // Livewire::component('cms-general', CmsGeneral::class);
         // Livewire::component('cms-navigation', CmsNavigation::class);
         //
-        Livewire::component('users-create', UsersCreate::class);
-        Livewire::component('users-update', UsersUpdate::class);
-        Livewire::component('users-list', UsersList::class);
+        // Livewire::component('users-create', UsersCreate::class);
+        // Livewire::component('users-update', UsersUpdate::class);
+        // Livewire::component('users-list', UsersList::class);
 
-        Blade::component('component-tinymce', ComponentTinymce::class);
+        // Blade::component('component-tinymce', ComponentTinymce::class);
 
 
 
