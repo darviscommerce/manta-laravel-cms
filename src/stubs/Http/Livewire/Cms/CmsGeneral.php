@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Cms;
 
 
 use Livewire\Component;
-use Manta\LaravelCms\Models\General;
+use App\Models\General;
 
 class CmsGeneral extends Component
 {

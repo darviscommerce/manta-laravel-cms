@@ -3,16 +3,17 @@
 namespace App\Http\Livewire\Users;
 
 use Carbon\Carbon;
-use Manta\LaravelCms\Models\MantaUser;
+use App\Models\MantaUser;
 use Livewire\Component;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
-class UsersUpdate extends Component
+class UsersCreate extends Component
 {
-    public MantaUser $item;
 
     public ?string $added_by = null;
     public ?string $changed_by = null;
-    public ?string $company_id = null;
+    public ?string $company_id = '1';
     public ?string $host = null;
     public ?string $locale = null;
     public ?string $name = null;
@@ -43,50 +44,9 @@ class UsersUpdate extends Component
     public ?string $code = null;
     public ?string $pid = null;
 
-    public function mount($input)
-    {
-        $item = MantaUser::find($input);
-        if ($item == null) {
-            return redirect()->to(route('manta.users.list'));
-        }
-        $this->item = $item;
-        $this->added_by = $item->added_by;
-        $this->changed_by = $item->changed_by;
-        $this->company_id = $item->company_id;
-        $this->host = $item->host;
-        $this->locale = $item->locale;
-        $this->name = $item->name;
-        $this->email = $item->email;
-        $this->sex = $item->sex;
-        $this->initials = $item->initials;
-        $this->lastname = $item->lastname;
-        $this->firstnames = $item->firstnames;
-        $this->nameInsertion = $item->nameInsertion;
-        $this->company = $item->company;
-        $this->companyNr = $item->companyNr;
-        $this->taxNr = $item->taxNr;
-        $this->address = $item->address;
-        $this->housenumber = $item->housenumber;
-        $this->addressSuffix = $item->addressSuffix;
-        $this->zipcode = $item->zipcode;
-        $this->city = $item->city;
-        $this->country = $item->country;
-        $this->state = $item->state;
-        $this->birthdate = $item->birthdate;
-        $this->birthcity = $item->birthcity;
-        $this->phone = $item->phone;
-        $this->phone2 = $item->phone2;
-        $this->bsn = $item->bsn;
-        $this->iban = $item->iban;
-        $this->maritalStatus = $item->maritalStatus;
-        $this->lastLogin = $item->lastLogin;
-        $this->code = $item->code;
-        $this->pid = $item->pid;
-    }
-
     public function render()
     {
-        return view('livewire.users.users-update')->layout('layouts.manta-bootstrap');
+        return view('livewire.users.users-create')->layout('layouts.manta-bootstrap');
     }
 
     public function store($input)
@@ -94,18 +54,20 @@ class UsersUpdate extends Component
         $this->validate(
             [
                 'name' => 'required|min:1',
-                'email' => 'required|email|unique:users,email,'.$this->item->id
+                'email' => 'required|email|unique:users,email'
             ],
             [
                 'name.required' => 'Achternaam is verplicht',
                 'email.required' => 'E-mail is verplicht',
-                'email.email' => 'E-mailadres is niet geldig',
-                'email.unique' => 'E-mailadres bestaat al'
+                'email.email' => 'E-mailadres is niet geldig'
             ]
         );
 
         $items = [
             'changed_by' => auth()->user()->name,
+            'host' => request()->getHost(),
+            'company_id' => (int)$this->company_id,
+            'password' => Hash::make(Str::random(20)),
             'locale' => $this->locale,
             'name' => $this->name,
             'email' => $this->email,
@@ -135,8 +97,11 @@ class UsersUpdate extends Component
             'code' => $this->code,
             'pid' => $this->pid,
         ];
-        MantaUser::where('id', $this->item->id)->update($items);
+        MantaUser::create($items);
 
         toastr()->addInfo('Gebruiker opgeslagen');
+
+        return redirect()->to(route('manta.users.list'));
     }
+
 }

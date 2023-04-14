@@ -4,16 +4,23 @@ namespace Manta\LaravelCms\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 
 class InstallMantaLaravelCms extends Command
 {
-    protected $signature = 'mantalaravelusers:install';
+    protected $signature = 'manta:install';
 
     protected $description = 'Install Manta Laravel Users';
 
     public function handle()
     {
-        $this->info('Installing Manta Laravel Bootstra...');
+        $this->info('Installing Manta Laravel Bootstrap...');
+
+        $this->info('Migrate...');
+        $this->call('migrate');
 
         $this->info('Publishing configuration...');
 
@@ -29,7 +36,22 @@ class InstallMantaLaravelCms extends Command
             }
         }
 
-        $this->info('Installed Manta Laravel Bootstrap');
+        if ($this->confirm('Add a demo user?')) {
+            $this->seedUserDemo();
+        }
+
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/Traits', app_path('Traits'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/Models', app_path('Models'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/Http', app_path('Http'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/resources/views', resource_path('views'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/resources/lang', resource_path('lang'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../public', public_path(''));
+
+        if (! Str::contains(file_get_contents(base_path('routes/web.php')), "'manta.cms.general'")) {
+            (new Filesystem)->append(base_path('routes/web.php'), file_get_contents(__DIR__.'/../routes/web.php'));
+        }
+
+        $this->info('Yeah... Manta Laravel Bootstrap Installed');
     }
 
     private function configExists($fileName)
@@ -57,5 +79,18 @@ class InstallMantaLaravelCms extends Command
         }
 
        $this->call('vendor:publish', $params);
+    }
+
+    private function seedUserDemo()
+    {
+        DB::table('users')->where('email', 'demo@manta.nl')->delete();
+        DB::table('users')->insert([
+            'name' => 'demo',
+            'email' => 'demo@manta.nl',
+            'password' => Hash::make('password'),
+        ]);
+        $this->info('User added');
+        $this->line('User: demo@manta.nl');
+        $this->line('Pass: password');
     }
 }

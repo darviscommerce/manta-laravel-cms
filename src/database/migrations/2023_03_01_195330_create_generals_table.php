@@ -32,13 +32,13 @@ return new class extends Migration
 
         General::create([
             'locale' => App::currentLocale(),
-            'company' => 'Fietsverhuur Julianadorp',
-            'address' => 'Loopuytpark 22',
-            'zipcode' => '1787AE',
-            'city' => 'Julianadorp',
-            'phone_input' => '+31223692673',
-            'phone' => '+31(0)223-692673',
-            'email' => 'info@fietsverhuurjulianadorp.nl',
+            'company' => '',
+            'address' => '',
+            'zipcode' => '',
+            'city' => '',
+            'phone_input' => '',
+            'phone' => '',
+            'email' => '',
             'facebook',
             'instagram',
             'twitter'
