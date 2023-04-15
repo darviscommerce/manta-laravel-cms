@@ -18,7 +18,7 @@ class MantaUserSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'demo',
-            'email' => 'demo@manta.nl',
+            'email' => 'demo@manta.website',
             'password' => Hash::make('password'),
         ]);
 

@@ -48,8 +48,14 @@ class InstallMantaLaravelCms extends Command
         (new Filesystem)->copyDirectory(__DIR__.'/../public', public_path(''));
 
         if (! Str::contains(file_get_contents(base_path('routes/web.php')), "'manta.cms.general'")) {
-            (new Filesystem)->append(base_path('routes/web.php'), file_get_contents(__DIR__.'/../routes/web.php'));
+            (new Filesystem)->append(base_path('routes/web.php'), file_get_contents(__DIR__.'/../stubs/web.php'));
         }
+
+        // "Home" Route...
+        // if(HOME != '/'.config('manta-cms.prefix').'/dashboard'){
+            $this->replaceInFile("'/home'", "'/".config('manta-cms.prefix')."/dashboard'", app_path('Providers/RouteServiceProvider.php'));
+            $this->replaceInFile("'/dashboard'", "'/".config('manta-cms.prefix')."/dashboard'", app_path('Providers/RouteServiceProvider.php'));
+        // }
 
         $this->info('Yeah... Manta Laravel Bootstrap Installed');
     }
@@ -83,14 +89,27 @@ class InstallMantaLaravelCms extends Command
 
     private function seedUserDemo()
     {
-        DB::table('users')->where('email', 'demo@manta.nl')->delete();
+        DB::table('users')->where('email', 'demo@manta.website')->delete();
         DB::table('users')->insert([
             'name' => 'demo',
-            'email' => 'demo@manta.nl',
+            'email' => 'demo@manta.website',
             'password' => Hash::make('password'),
         ]);
         $this->info('User added');
-        $this->line('User: demo@manta.nl');
+        $this->line('User: demo@manta.website');
         $this->line('Pass: password');
+    }
+
+    /**
+     * Replace a given string within a given file.
+     *
+     * @param  string  $search
+     * @param  string  $replace
+     * @param  string  $path
+     * @return void
+     */
+    protected function replaceInFile($search, $replace, $path)
+    {
+        file_put_contents($path, str_replace($search, $replace, file_get_contents($path)));
     }
 }
