@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->softDeletes();
-            $table->string('added_by')->nullable();
-            $table->string('changed_by')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->string('deleted_by')->nullable();
             $table->integer('company_id')->nullable();
             $table->string('host')->nullable();
             $table->string('locale')->nullable();

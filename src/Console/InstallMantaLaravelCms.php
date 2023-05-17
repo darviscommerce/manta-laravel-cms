@@ -40,9 +40,10 @@ class InstallMantaLaravelCms extends Command
             $this->seedUserDemo();
         }
 
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/Traits', app_path('Traits'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/Models', app_path('Models'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/Http', app_path('Http'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/app/Traits', app_path('Traits'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/app/Models', app_path('Models'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/app/Http', app_path('Http'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/app/View', app_path('View'));
         (new Filesystem)->copyDirectory(__DIR__.'/../stubs/resources/views', resource_path('views'));
         (new Filesystem)->copyDirectory(__DIR__.'/../stubs/resources/lang', resource_path('lang'));
         (new Filesystem)->copyDirectory(__DIR__.'/../public', public_path(''));

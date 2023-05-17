@@ -1,6 +1,6 @@
 <?php
 
-namespace Manta\LaravelCms\View\Components\Manta;
+namespace App\View\Components\Manta;
 
 use Closure;
 use Illuminate\Contracts\View\View;
