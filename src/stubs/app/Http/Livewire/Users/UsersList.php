@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Users;
 
-use App\Models\MantaUser;
-use App\Traits\WithSorting;
+use Manta\LaravelCms\Models\MantaUser;
+use Manta\LaravelCms\Traits\WithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -30,16 +30,16 @@ class UsersList extends Component
     public function render()
     {
         $obj = MantaUser::orderBy($this->sortBy, $this->sortDirection);
-        if($this->show == 'trashed'){
+        if ($this->show == 'trashed') {
             $obj->onlyTrashed();
         }
-        if($this->search){
+        if ($this->search) {
             $keyword = $this->search;
-            $obj->where(function ($query) use($keyword) {
+            $obj->where(function ($query) use ($keyword) {
                 $query->where('name', 'like', '%' . $keyword . '%')
-                   ->orWhere('email', 'like', '%' . $keyword . '%');
-              });
-        // ->where('name', 'like', '%'.$this->search.'%')->orWhere('email', 'like', '%'.$this->search.'%');
+                    ->orWhere('email', 'like', '%' . $keyword . '%');
+            });
+            // ->where('name', 'like', '%'.$this->search.'%')->orWhere('email', 'like', '%'.$this->search.'%');
         }
         $items = $obj->paginate(20);
         return view('livewire.users.users-list', ['items' => $items])->layout('layouts.manta-bootstrap')->with(['title' => 'kip']);

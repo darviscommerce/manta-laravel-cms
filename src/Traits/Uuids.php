@@ -1,7 +1,9 @@
 <?php
-namespace App\Traits;
+
+namespace Manta\LaravelCms\Traits;
 
 use Illuminate\Support\Str;
+
 trait Uuids
 {
 

@@ -3,15 +3,15 @@
 namespace App\Http\Livewire\Users;
 
 use Carbon\Carbon;
-use App\Models\MantaUser;
+use Manta\LaravelCms\Models\MantaUser;
 use Livewire\Component;
 
 class UsersUpdate extends Component
 {
     public MantaUser $item;
 
-    public ?string $added_by = null;
-    public ?string $changed_by = null;
+    public ?string $created_by = null;
+    public ?string $updated_by = null;
     public ?string $company_id = null;
     public ?string $host = null;
     public ?string $locale = null;
@@ -50,8 +50,8 @@ class UsersUpdate extends Component
             return redirect()->to(route('manta.users.list'));
         }
         $this->item = $item;
-        $this->added_by = $item->added_by;
-        $this->changed_by = $item->changed_by;
+        $this->created_by = $item->created_by;
+        $this->updated_by = $item->updated_by;
         $this->company_id = $item->company_id;
         $this->host = $item->host;
         $this->locale = $item->locale;
@@ -94,7 +94,7 @@ class UsersUpdate extends Component
         $this->validate(
             [
                 'name' => 'required|min:1',
-                'email' => 'required|email|unique:users,email,'.$this->item->id
+                'email' => 'required|email|unique:users,email,' . $this->item->id
             ],
             [
                 'name.required' => 'Achternaam is verplicht',
@@ -105,7 +105,7 @@ class UsersUpdate extends Component
         );
 
         $items = [
-            'changed_by' => auth()->user()->name,
+            'updated_by' => auth()->user()->name,
             'locale' => $this->locale,
             'name' => $this->name,
             'email' => $this->email,

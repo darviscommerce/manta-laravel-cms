@@ -9,7 +9,7 @@
                 plugins: 'searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help code',
                 menubar: 'edit insert view format table tools', // skip file
                 toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
-                content_css : "/theme/css/fietsverhuur-julianadorp.css",
+                // content_css : "",
                 setup: function(editor) {
                     editor.on('init change', function() {
                         editor.save();

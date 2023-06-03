@@ -4,7 +4,7 @@
     "homepage": "https://darvis.nl",
     "keywords": ["darvis", "laravel", "livewire", "bootstrap", "cms", "users"],
     "license": "MIT",
-    "version": "1.0.250",
+    "version": "1.0.253",
     "authors": [
         {
             "name": "Arvid de Jong",
@@ -33,6 +33,7 @@
     "require": {
         "laravel/jetstream": "*",
         "php-flasher/flasher-laravel": "*",
-        "php-flasher/flasher-toastr-laravel": "*"
+        "php-flasher/flasher-toastr-laravel": "*",
+        "unisharp/laravel-filemanager": "*"
     }
 }

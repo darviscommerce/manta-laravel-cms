@@ -121,7 +121,7 @@
         <div class="mb-3 row">
             <div class="col-sm-12">
                 {{-- @include('includes.form_error') --}}
-                <input class="btn btn-primary" type="submit" value="Opslaan" wire:loading.class="btn-secondary"
+                <input class="btn btn-sm btn-primary" type="submit" value="Opslaan" wire:loading.class="btn-secondary"
                     wire:loading.attr="disabled" />
             </div>
         </div>

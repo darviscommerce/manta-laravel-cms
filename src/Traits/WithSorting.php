@@ -1,5 +1,6 @@
 <?php
-namespace App\Traits;
+
+namespace Manta\LaravelCms\Traits;
 
 trait WithSorting
 {
@@ -19,7 +20,7 @@ trait WithSorting
     }
 
     /** @return string  */
-    public function reverseSort() :string
+    public function reverseSort(): string
     {
         return $this->sortDirection === 'asc'
             ? 'desc'

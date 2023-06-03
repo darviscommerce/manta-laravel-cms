@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Users;
 
 use Carbon\Carbon;
-use App\Models\MantaUser;
+use Manta\LaravelCms\Models\MantaUser;
 use Livewire\Component;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -11,10 +11,11 @@ use Illuminate\Support\Str;
 class UsersCreate extends Component
 {
 
-    public ?string $added_by = null;
-    public ?string $changed_by = null;
+    public ?string $created_by = null;
+    public ?string $updated_by = null;
     public ?string $company_id = '1';
     public ?string $host = null;
+    public ?string $password = null;
     public ?string $locale = null;
     public ?string $name = null;
     public ?string $email = null;
@@ -44,6 +45,12 @@ class UsersCreate extends Component
     public ?string $code = null;
     public ?string $pid = null;
 
+    public function mount()
+    {
+        $this->locale = app()->getLocale();
+        $this->password = fake()->state() . fake('nl_NL')->numberBetween(10, 999) . fake('nl_NL')->randomElement(['!', '@', '#', '$', '%', '^', '&', '*', '(', ')']);
+    }
+
     public function render()
     {
         return view('livewire.users.users-create')->layout('layouts.manta-bootstrap');
@@ -54,20 +61,23 @@ class UsersCreate extends Component
         $this->validate(
             [
                 'name' => 'required|min:1',
-                'email' => 'required|email|unique:users,email'
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|min:6',
             ],
             [
-                'name.required' => 'Achternaam is verplicht',
+                'name.required' => 'Roepnaam is verplicht',
                 'email.required' => 'E-mail is verplicht',
-                'email.email' => 'E-mailadres is niet geldig'
+                'email.email' => 'E-mailadres is niet geldig',
+                'password.required' => 'Wachtwoord is verplicht',
+                'password.min' => 'Het wachtwoord moet minstens 6 karakters hebben',
             ]
         );
 
         $items = [
-            'changed_by' => auth()->user()->name,
+            'updated_by' => auth()->user()->name,
             'host' => request()->getHost(),
             'company_id' => (int)$this->company_id,
-            'password' => Hash::make(Str::random(20)),
+            'password' => Hash::make($this->password),
             'locale' => $this->locale,
             'name' => $this->name,
             'email' => $this->email,
@@ -103,5 +113,4 @@ class UsersCreate extends Component
 
         return redirect()->to(route('manta.users.list'));
     }
-
 }

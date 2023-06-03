@@ -21,15 +21,14 @@ class MantaUserSeeder extends Seeder
             'email' => 'demo@manta.website',
             'password' => Hash::make('password'),
         ]);
-
-        for($i = 0; $i <= 50; $i++)
-        {
+        /*
+        for ($i = 0; $i <= 10; $i++) {
             DB::table('users')->insert([
                 'name' => Str::random(10),
-                'email' => Str::random(10).'@gmail.com',
+                'email' => Str::random(10) . '@gmail.com',
                 'password' => Hash::make('password'),
             ]);
         }
-
+        */
     }
 }

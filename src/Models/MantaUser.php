@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Manta\LaravelCms\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,8 +33,8 @@ class MantaUser extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password',
-        'added_by',
-        'changed_by',
+        'created_by',
+        'updated_by',
         'company_id',
         'host',
         'locale',

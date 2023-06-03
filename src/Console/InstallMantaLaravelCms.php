@@ -24,7 +24,7 @@ class InstallMantaLaravelCms extends Command
 
         $this->info('Publishing configuration...');
 
-        if (! $this->configExists('manta-cms.php')) {
+        if (!$this->configExists('manta-cms.php')) {
             $this->publishConfiguration();
             $this->info('Published configuration');
         } else {
@@ -40,23 +40,28 @@ class InstallMantaLaravelCms extends Command
             $this->seedUserDemo();
         }
 
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/app/Traits', app_path('Traits'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/app/Models', app_path('Models'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/app/Http', app_path('Http'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/app/View', app_path('View'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/resources/views', resource_path('views'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../stubs/resources/lang', resource_path('lang'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../public', public_path(''));
+        // (new Filesystem)->copyDirectory(__DIR__ . '/../Traits', app_path('Traits'));
+        // (new Filesystem)->copyDirectory(__DIR__ . '/../Models', app_path('Models'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../stubs/app/Http', app_path('Http'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../stubs/app/View', app_path('View'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../stubs/resources/views', resource_path('views'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../stubs/resources/lang', resource_path('lang'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../public', public_path(''));
 
-        if (! Str::contains(file_get_contents(base_path('routes/web.php')), "'manta.cms.general'")) {
-            (new Filesystem)->append(base_path('routes/web.php'), file_get_contents(__DIR__.'/../stubs/web.php'));
+        if (!Str::contains(file_get_contents(base_path('routes/web.php')), "'manta.cms.general'")) {
+            (new Filesystem)->append(base_path('routes/web.php'), file_get_contents(__DIR__ . '/../stubs/web.php'));
         }
 
         // "Home" Route...
         // if(HOME != '/'.config('manta-cms.prefix').'/dashboard'){
-            $this->replaceInFile("'/home'", "'/".config('manta-cms.prefix')."/dashboard'", app_path('Providers/RouteServiceProvider.php'));
-            $this->replaceInFile("'/dashboard'", "'/".config('manta-cms.prefix')."/dashboard'", app_path('Providers/RouteServiceProvider.php'));
+        $this->replaceInFile("'/home'", "'/" . config('manta-cms.prefix') . "/dashboard'", app_path('Providers/RouteServiceProvider.php'));
+        $this->replaceInFile("'/dashboard'", "'/" . config('manta-cms.prefix') . "/dashboard'", app_path('Providers/RouteServiceProvider.php'));
         // }
+
+        // LFM   https://unisharp.github.io/laravel-filemanager/installation
+        $this->call('vendor:publish --tag=lfm_config');
+        $this->call('vendor:publish --tag=lfm_public');
+        $this->call('storage:link');
 
         $this->info('Yeah... Manta Laravel Bootstrap Installed');
     }
@@ -85,7 +90,7 @@ class InstallMantaLaravelCms extends Command
             $params['--force'] = true;
         }
 
-       $this->call('vendor:publish', $params);
+        $this->call('vendor:publish', $params);
     }
 
     private function seedUserDemo()

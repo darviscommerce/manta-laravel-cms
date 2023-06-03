@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Manta\LaravelCms\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
