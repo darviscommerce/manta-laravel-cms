@@ -15,8 +15,6 @@ class MantaCmsProvider extends ServiceProvider
      */
     public function boot()
     {
-        // * Laravel components
-
         // * Migrations
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 

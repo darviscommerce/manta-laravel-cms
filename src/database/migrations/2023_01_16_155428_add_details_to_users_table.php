@@ -46,6 +46,8 @@ return new class extends Migration
             $table->dateTime('lastLogin')->nullable();
             $table->string('code')->nullable();
             $table->integer('pid')->nullable();
+            $table->tinyInteger('admin')->default(0);
+            $table->tinyInteger('developer')->default(0);
         });
     }
 
